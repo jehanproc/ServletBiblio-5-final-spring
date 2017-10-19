@@ -15,10 +15,10 @@ import service.impl.BibliothequeImpl;
 /**
  * Servlet implementation class LivreServlet
  */
-@WebServlet({ "/livre/lister", "/livre/editer", "/livre/action" })
+@WebServlet(name="livreServlet",  urlPatterns={ "/livre/lister", "/livre/editer", "/livre/action" })
 public class LivreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Bibliotheque biblio = new BibliothequeImpl(3, 5);
+	Bibliotheque biblio;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -58,7 +58,7 @@ public class LivreServlet extends HttpServlet {
 			}
 			if("delete".equals(request.getParameter("action"))) {
 			
-				biblio.getLivreDao().delete(id);
+				biblio.retirerLivre(id);
 			}
 			
 			nextView = "lister";
@@ -77,6 +77,11 @@ public class LivreServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		biblio = (Bibliotheque)getServletContext().getAttribute("biblio");
 	}
 
 }

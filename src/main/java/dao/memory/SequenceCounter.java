@@ -1,7 +1,7 @@
 package dao.memory;
 
 public class SequenceCounter {
-	static int sequence = 0;
+	static int sequence = 1000;
 	
 	public static int getId() {
 		return ++sequence;

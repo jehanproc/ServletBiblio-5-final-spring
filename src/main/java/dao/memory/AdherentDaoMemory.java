@@ -12,14 +12,6 @@ public class AdherentDaoMemory implements AdherentDao {
 	
 	static Map<Integer, Adherent> adherents = new HashMap<>();
 	
-	public AdherentDaoMemory() {
-		Adherent ad1 = new Adherent("Dupond", "Jean", "0234567812", "jean.dupont.@yahoo.fr");
-		Adherent ad2 = new Adherent("Durant", "Jacques", "0223674512", "jacques.durant@free.fr");
-		Adherent ad3 = new Adherent("Martin", "Bernadette", "0138792012", "m.bernadette@gmail.com");
-		save(ad1);
-		save(ad2);
-		save(ad3);
-	}
 
 	@Override
 	public Adherent save(Adherent entity) {

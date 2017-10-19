@@ -22,6 +22,7 @@
     <servlet-name>authentification</servlet-name>
     <url-pattern>/authentification/login</url-pattern>
     <url-pattern>/authentification/validation</url-pattern>
+    <url-pattern>/authentification/logout</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>0</session-timeout>

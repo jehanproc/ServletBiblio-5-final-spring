@@ -12,14 +12,6 @@ public class LivreDaoMemory implements LivreDao {
 	
 	static Map<Integer, Livre> livres = new HashMap<>();
 	
-	public LivreDaoMemory() {
-		Livre livre   = new Livre("Stupeur et tremblements",1999, "Amélie Nothomb");
-		livre = save(livre);
-		System.out.println(livre.getId());
-		save(new Livre("L'étranger",1942, "Albert Camus"));
-		save(new Livre("Réglez-lui son compte !",1949, "Frédéric Dard"));
-		save(new Livre("Tintin au Tibet",1960, "Hergé"));
-	}
 
 	@Override
 	public Livre save(Livre entity) {
