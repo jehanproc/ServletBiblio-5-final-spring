@@ -51,14 +51,18 @@ public class LivreServlet extends HttpServlet {
 			String titre = request.getParameter("titre");
 			String auteur = request.getParameter("auteur");
 			Integer parution = Integer.valueOf(request.getParameter("parution"));
+			Livre l = new Livre(titre, parution, auteur);
 			if("update".equals(request.getParameter("action"))) {
-				Livre l = new Livre(titre, parution, auteur);
 				l.setId(id);
 				biblio.getLivreDao().update(l);
 			}
 			if("delete".equals(request.getParameter("action"))) {
 			
 				biblio.retirerLivre(id);
+			}
+			if("create".equals(request.getParameter("action"))) {
+				
+				biblio.ajouterLivre(l);
 			}
 			
 			nextView = "lister";
