@@ -8,6 +8,7 @@ import dao.AdherentDao;
 import dao.EmpruntDao;
 import dao.LivreDao;
 import dao.jdbc.LivreDaoJdbc;
+import dao.jpa.AdherentDaoJpa;
 import dao.memory.AdherentDaoMemory;
 import dao.memory.EmpruntDaoMemory;
 import dao.memory.LivreDaoMemory;
@@ -21,7 +22,7 @@ public class BibliothequeImpl implements Bibliotheque {
 	final int maxEmpruntAdherent;
 	
 	LivreDao livreDao = new LivreDaoJdbc();
-	AdherentDao adherentDao = new AdherentDaoMemory();
+	AdherentDao adherentDao = new AdherentDaoJpa();
 	EmpruntDao empruntDao = new EmpruntDaoMemory();
 	
 	public BibliothequeImpl(Integer maxLivreIdentique, Integer maxEmpruntAdherent) {

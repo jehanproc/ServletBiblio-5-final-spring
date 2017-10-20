@@ -9,7 +9,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Adherent {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_ADHERENT")

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebListener;
 
 import service.Bibliotheque;
 import service.impl.BibliothequeImpl;
+import util.JpaUtil;
 import dao.AdherentDao;
 import dao.LivreDao;
 import dao.memory.AdherentDaoMemory;
@@ -50,9 +51,13 @@ public class BiblioListener implements ServletContextListener {
      		Adherent ad1 = new Adherent("Dupond", "Jean", "0234567812", "jean.dupont.@yahoo.fr");
      		Adherent ad2 = new Adherent("Durant", "Jacques", "0223674512", "jacques.durant@free.fr");
      		Adherent ad3 = new Adherent("Martin", "Bernadette", "0138792012", "m.bernadette@gmail.com");
+     		
+     		JpaUtil.getCurrentEntityManager().getTransaction().begin();
      		adherentDao.save(ad1);
      		adherentDao.save(ad2);
      		adherentDao.save(ad3);
+     		JpaUtil.getCurrentEntityManager().getTransaction().commit();
+     		JpaUtil.closeCurrentEntityManager();
 
      		livreDao.save (new Livre("Stupeur et tremblements",1999, "Amélie Nothomb"));
      		livreDao.save(new Livre("L'étranger",1942, "Albert Camus"));
