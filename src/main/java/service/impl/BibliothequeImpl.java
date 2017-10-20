@@ -3,20 +3,23 @@ package service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import service.Bibliotheque;
 import dao.AdherentDao;
 import dao.EmpruntDao;
 import dao.LivreDao;
 import dao.jdbc.LivreDaoJdbc;
 import dao.jpa.AdherentDaoJpa;
-import dao.memory.AdherentDaoMemory;
 import dao.memory.EmpruntDaoMemory;
-import dao.memory.LivreDaoMemory;
 import entity.Adherent;
 import entity.BusinessException;
 import entity.Emprunt;
 import entity.Livre;
 
+@Service
 public class BibliothequeImpl implements Bibliotheque {
 	final int maxLivreIdentique;
 	final int maxEmpruntAdherent;
@@ -25,7 +28,8 @@ public class BibliothequeImpl implements Bibliotheque {
 	AdherentDao adherentDao = new AdherentDaoJpa();
 	EmpruntDao empruntDao = new EmpruntDaoMemory();
 	
-	public BibliothequeImpl(Integer maxLivreIdentique, Integer maxEmpruntAdherent) {
+	@Autowired
+	public BibliothequeImpl(@Value("3")   Integer maxLivreIdentique, @Value("5") Integer maxEmpruntAdherent) {
 		this.maxLivreIdentique = maxLivreIdentique; 
 		this.maxEmpruntAdherent = maxEmpruntAdherent;
 	}
