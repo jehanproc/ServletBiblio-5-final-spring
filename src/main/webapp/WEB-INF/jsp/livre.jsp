@@ -10,7 +10,7 @@
 <title>livres</title>
 </head>
 <body>
-<jsp:include page="header.jsp"   >
+<jsp:include page="header.jsp"/>
 <hr/>
 <%@include file="menu.jsp" %>
 <hr/>

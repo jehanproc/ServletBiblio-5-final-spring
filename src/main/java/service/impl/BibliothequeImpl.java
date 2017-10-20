@@ -7,6 +7,7 @@ import service.Bibliotheque;
 import dao.AdherentDao;
 import dao.EmpruntDao;
 import dao.LivreDao;
+import dao.jdbc.LivreDaoJdbc;
 import dao.memory.AdherentDaoMemory;
 import dao.memory.EmpruntDaoMemory;
 import dao.memory.LivreDaoMemory;
@@ -19,7 +20,7 @@ public class BibliothequeImpl implements Bibliotheque {
 	final int maxLivreIdentique;
 	final int maxEmpruntAdherent;
 	
-	LivreDao livreDao = new LivreDaoMemory();
+	LivreDao livreDao = new LivreDaoJdbc();
 	AdherentDao adherentDao = new AdherentDaoMemory();
 	EmpruntDao empruntDao = new EmpruntDaoMemory();
 	
